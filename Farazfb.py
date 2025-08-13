@@ -10,8 +10,7 @@ from datetime import datetime, date
 from bs4 import BeautifulSoup
 from concurrent.futures import ThreadPoolExecutor as ThreadPool
 
-# Fixed logo variable
-logo = """   
+# Fixed logo variable without duplicate assignment
 logo = """
 \033[1;35m███████╗ █████╗ ██████╗  █████╗ ███████╗
 \033[1;36m██╔════╝██╔══██╗██╔══██╗██╔══██╗╚══███╔╝
@@ -30,10 +29,10 @@ logo = """
 │ \033[1;34mVERSION   \033[1;35m: 3.0          \033[1;33m│
 └─────────────────────────────┘
 
-\033[1;36m✧･ﾟ: *✧･ﾟ:* \033[1;32mW \033[1;36m*:･ﾟ✧*:･ﾟ✧
+\033[1;36m✧･ﾟ: *✧･ﾟ:* \033[1;32mWELCOME \033[1;36m*:･ﾟ✧*:･ﾟ✧
        \33[37;41m\t WELLCOME TO Faraz TOOL\33[0;m
  
-\033[1;37m================== \33[32;45mNIDA\33[0;m ======================\n"""
+\033[1;37m================== \33[32;45mTOOL\33[0;m ======================\n"""
 
 # Color definitions
 RED = '\033[1;91m'
@@ -52,7 +51,7 @@ O = '\x1b[1;96m' # BIRU MUDA
 N = '\x1b[0m'    # WARNA MATI
 
 def clear():
-    os.system('clear')
+    os.system('clear' if os.name == 'posix' else 'cls')
     print(logo)
 
 def ud():
@@ -62,11 +61,15 @@ def ud():
     print(' [2] EXIT')
     opt = input('\n   Choose option >>> ')
     if opt == '1':
-        os.system('xdg-open ')
+        os.system('xdg-open https://youtube.com')  # Added valid URL
         FD()
-    else:
+    elif opt == '2':
         print('\n\x1b[1;31mEXIT\x1b[0;97m')
         sys.exit()
+    else:
+        print('\n\x1b[1;31mInvalid option\x1b[0;97m')
+        time.sleep(1)
+        ud()
 
 def FD():
     clear()
@@ -77,9 +80,13 @@ def FD():
     if opt == '1':
         os.system('xdg-open https://youtu.be/y837qD_AO6Q')
         o()
-    else:
+    elif opt == '2':
         print('\n\x1b[1;31mEXIT\x1b[0;97m')
         sys.exit()
+    else:
+        print('\n\x1b[1;31mInvalid option\x1b[0;97m')
+        time.sleep(1)
+        FD()
 
 def o():
     clear()
@@ -96,23 +103,34 @@ def o():
         i()
     elif opt == '2':
         os.system('xdg-open https://www.facebook.com/profile.php?id=100082840689031')
+        o()
     elif opt == '3':
         os.system('xdg-open https://youtube.com/channel/UCG8CSxk8KQMZuVfRhCa6FBw')
+        o()
     elif opt == '4':
         os.system('xdg-open https://facebook.com/groups/207678473842318/')
+        o()
     elif opt == '00':
         sys.exit()
     else:
         print('\n\x1b[1;31m Choose valid option\x1b[0;97m')
+        time.sleep(1)
+        o()
 
-# [Rest of your functions like i(), rcrack(), etc. can be added here]
+def i():
+    # Placeholder for your cracking function
+    print("\n\x1b[1;33mThis would run the cracking function\x1b[0m")
+    input("\nPress Enter to return to menu...")
+    o()
 
 if __name__ == "__main__":
     try:
         ud()
     except KeyboardInterrupt:
         print("\n\x1b[1;31mProcess interrupted by user\x1b[0m")
+        sys.exit(0)
     except Exception as e:
-        print(f"\x1b[1;31mError occurred: {e}\x1b[0m")
+        print(f"\x1b[1;31mError occurred: {str(e)}\x1b[0m")
+        sys.exit(1)
     finally:
         print("\x1b[1;32mScript execution completed\x1b[0m")
