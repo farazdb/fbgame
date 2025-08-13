@@ -12,25 +12,26 @@ from concurrent.futures import ThreadPoolExecutor as ThreadPool
 
 # Fixed logo variable
 logo = """   
-\033[1;32m       888    d8P  8888888b.   .d8888b.  
-\033[1;35m       888   d8P   888   Y88b d88P  Y88b 
-\033[1;35m       888  d8P    888    888 Y88b.      
-\033[1;32m       888d88K     888   d88P  "Y888b.   
-\033[1;32m       8888888b    8888888P"      "Y88b. 
-\033[1;35m       888  Y88b   888 T88b         "888 
-\033[1;35m       888   Y88b  888  T88b  Y88b  d88P 
-\033[1;32m       888    Y88b 888   T88b  "Y8888P"  
- 
-\033[1;37m================= \33[32;45mKASHIF\33[0;m =====================
-\033[1;32m     \033[1;33mCREATED BY\33[0;m   :  \033[1;33mARYAN\33[0;m\033[1;32m && \033[1;33mKASHIF\33[0;m
-\033[1;32m     \033[1;32mFACEBOK      : \033[1;34m ArYan KhAn
-\033[1;32m     \033[1;35mGITHUB       :  \033[1;35mTEAM-KRS
-\033[1;32m     \033[1;36mTOOL STATUS  :  \033[1;36mTOOL IS FREE
-\033[1;32m     \033[1;35mTEAM         :  \033[1;35mKRS
-\033[1;32m     \033[1;36mTOOL VIRSION :  \033[1;36m2.3
-\033[1;37m================= \33[32;45mARYAN\33[0;m =====================
- 
-       \33[37;41m\t WELLCOME TO KRS TOOL\33[0;m
+logo = """
+\033[1;35m███████╗ █████╗ ██████╗  █████╗ ███████╗
+\033[1;36m██╔════╝██╔══██╗██╔══██╗██╔══██╗╚══███╔╝
+\033[1;34m█████╗  ███████║██████╔╝███████║  ███╔╝ 
+\033[1;32m██╔══╝  ██╔══██║██╔══██╗██╔══██║ ███╔╝  
+\033[1;33m██║     ██║  ██║██║  ██║██║  ██║███████╗
+\033[1;31m╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝
+
+\033[1;37m╭─────────────────────────────╮
+│ \033[1;32m•͡˘㇁•͡˘ \033[1;35mF A R A Z \033[1;36m•͡˘㇁•͡˘ \033[1;37m│
+╰─────────────────────────────╯
+
+\033[1;33m┌─────────────────────────────┐
+│ \033[1;34mCREATED BY \033[1;35m: FARAZ & TEAM \033[1;33m│
+│ \033[1;34mGITHUB    \033[1;35m: FARAZ-DEV    \033[1;33m│
+│ \033[1;34mVERSION   \033[1;35m: 3.0          \033[1;33m│
+└─────────────────────────────┘
+
+\033[1;36m✧･ﾟ: *✧･ﾟ:* \033[1;32mW \033[1;36m*:･ﾟ✧*:･ﾟ✧
+       \33[37;41m\t WELLCOME TO Faraz TOOL\33[0;m
  
 \033[1;37m================== \33[32;45mNIDA\33[0;m ======================\n"""
 
@@ -61,7 +62,7 @@ def ud():
     print(' [2] EXIT')
     opt = input('\n   Choose option >>> ')
     if opt == '1':
-        os.system('xdg-open https://youtube.com/channel/UCG8CSxk8KQMZuVfRhCa6FBw')
+        os.system('xdg-open ')
         FD()
     else:
         print('\n\x1b[1;31mEXIT\x1b[0;97m')
@@ -109,6 +110,9 @@ def o():
 if __name__ == "__main__":
     try:
         ud()
+    except KeyboardInterrupt:
+        print("\n\x1b[1;31mProcess interrupted by user\x1b[0m")
     except Exception as e:
-        print(f"Error: {e}")
-        sys.exit()
+        print(f"\x1b[1;31mError occurred: {e}\x1b[0m")
+    finally:
+        print("\x1b[1;32mScript execution completed\x1b[0m")
